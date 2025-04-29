@@ -1,47 +1,79 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="container">
+    <header>
+      <h1>Quizes</h1>
+      <input type="text" placeholder="Search..." />
+    </header>
+    <div class="options-container">
+      <div class="card">
+        <img
+          src="https://cdn.vectorstock.com/i/500p/54/94/text-math-with-formula-border-background-vector-48965494.jpg"
+          alt=""
+        />
+        <div class="card-text">
+          <h2>Math</h2>
+          <p>15 questions</p>
+        </div>
+      </div>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
+  .container {
+    background-color: aliceblue;
+    height: 100vh;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
   header {
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    align-items: center;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  header h1 {
+    font-weight: bold;
+    margin-right: 30px;
   }
 
-  header .wrapper {
+  header input {
+    border: none;
+    background-color: rgba(128, 128, 128, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .options-card {
     display: flex;
-    place-items: flex-start;
     flex-wrap: wrap;
+    margin-top: 40px;
   }
-}
+
+  /* CARD */
+  .card {
+    width: 310px;
+    overflow: hidden;
+    border-radius: 2%;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 35px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .card img {
+    height: 190px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .card .card-text {
+    padding: 0 5px;
+  }
+
+  .card .card-text h2 {
+    font-weight: bold;
+  }
 </style>
