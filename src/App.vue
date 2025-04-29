@@ -6,7 +6,6 @@
   const search = ref("");
 
   watch(search, () => {
-    console.log("helo");
     quizes.value = q.filter((quiz) =>
       quiz.name.toLowerCase().includes(search.value.toLowerCase())
     );
@@ -20,14 +19,14 @@
         <h1>Quizes</h1>
         <input v-model.trim="search" type="text" placeholder="Search..." />
       </header>
-      <div class="options-card">
-        <div v-for="quiz in quizes" :key="quiz.id" class="card">
+      <div class="options-container">
+        <!-- <div v-for="quiz in quizes" :key="quiz.id" class="card">
           <img :src="quiz.img" alt="" />
           <div class="card-text">
             <h2>{{ quiz.name }}</h2>
             <p>{{ quiz.questions.length }} questions</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -64,35 +63,9 @@
     border-radius: 5px;
   }
 
-  .options-card {
+  .options-container {
     display: flex;
     flex-wrap: wrap;
     margin-top: 40px;
-  }
-
-  /* CARD */
-  .card {
-    width: 310px;
-    overflow: hidden;
-    border-radius: 2%;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 35px;
-    margin-right: 20px;
-    cursor: pointer;
-  }
-
-  .card img {
-    height: 190px;
-    width: 100%;
-    margin: 0;
-  }
-
-  .card .card-text {
-    color: grey;
-    padding: 0 5px;
-  }
-
-  .card .card-text h2 {
-    font-weight: bold;
   }
 </style>
