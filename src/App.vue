@@ -1,18 +1,24 @@
+<script setup>
+  import q from "./data/quizes.json";
+  import { ref } from "vue";
+
+  const quizes = ref(q);
+</script>
+
 <template>
-  <div class="container">
-    <header>
-      <h1>Quizes</h1>
-      <input type="text" placeholder="Search..." />
-    </header>
-    <div class="options-container">
-      <div class="card">
-        <img
-          src="https://cdn.vectorstock.com/i/500p/54/94/text-math-with-formula-border-background-vector-48965494.jpg"
-          alt=""
-        />
-        <div class="card-text">
-          <h2>Math</h2>
-          <p>15 questions</p>
+  <div class="main">
+    <div class="container">
+      <header>
+        <h1>Quizes</h1>
+        <input type="text" placeholder="Search..." />
+      </header>
+      <div class="options-card">
+        <div v-for="quiz in quizes" :key="quiz.id" class="card">
+          <img :src="quiz.img" alt="" />
+          <div class="card-text">
+            <h2>{{ quiz.name }}</h2>
+            <p>{{ quiz.questions.length }} questions</p>
+          </div>
         </div>
       </div>
     </div>
@@ -20,9 +26,12 @@
 </template>
 
 <style scoped>
-  .container {
-    background-color: aliceblue;
+  .main {
     height: 100vh;
+    width: 100vw;
+    background-color: aliceblue;
+  }
+  .container {
     max-width: 1000px;
     margin: 0 auto;
   }
@@ -35,6 +44,7 @@
   }
 
   header h1 {
+    color: grey;
     font-weight: bold;
     margin-right: 30px;
   }
@@ -70,6 +80,7 @@
   }
 
   .card .card-text {
+    color: grey;
     padding: 0 5px;
   }
 
